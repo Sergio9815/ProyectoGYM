@@ -1,0 +1,461 @@
+/*
+.logoGym{
+  margin-top: -20px;
+}
+*/
+
+/******************************************BARRA DE NAVEGACION******************************************/
+#barMenu{
+  background-color:rgb(160, 70, 70);
+  display: inline-block;
+  width: 100%;
+  height: 10%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#menu{
+  background-color:rgb(160, 70, 70);
+  display: inline-block;
+  width: 85%;
+  height: 50px;
+  position: sticky;
+  margin-left: 100px;
+  margin-top: 10px;
+  font-family: monospace;    
+}
+
+#menu ul{
+  list-style: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li{
+  float: left;
+  margin-left: 50px;
+}
+
+#cerrarSec{
+  margin-left: 700px;
+}
+
+#menu ul li a{
+  color: rgb(218, 218, 218);
+    display: block;
+    padding: 16px 16px;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+#menu ul li a:hover{
+  color: rgb(255, 255, 255);
+}
+
+#menu ul li #adm{
+  color: rgb(218, 218, 218);
+    display: block;
+    padding: 16px 16px;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+#menu ul li #adm:hover{
+  color: rgb(255, 255, 255);
+}
+
+.barra{
+  border: none;
+  width: 300px;
+  height: 30px;
+  position: absolute;
+  margin-left: 380px;
+  margin-top: -40px;
+}
+
+.btn{
+  padding: 9px 25px;
+  text-align: center;
+  letter-spacing: 3px;
+  border: none;
+  position: absolute;
+  border-radius: 2px;
+  margin-top: -41px;
+  cursor: pointer;
+  margin-left: 690px;
+}
+
+
+.btn2{
+  padding: 9px 25px;
+  text-align: center;
+  letter-spacing: 3px;
+  border: none;
+  position: absolute;
+  border-radius: 2px;
+  margin-top: -41px;
+  cursor: pointer;
+  float: left;
+  margin-left: 810px;
+}
+
+
+.btn:hover {
+  background-color: rgb(218, 218, 218);
+}
+
+.btn2:hover {
+  background-color: rgb(218, 218, 218);
+}
+
+
+/******************************************MENU DE CONSULTAS******************************************/
+
+.dropbtn {
+  background-color: rgb(160, 70, 70);
+  color: rgb(218, 218, 218);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: monospace;
+  display: block;
+  padding: 16px;
+  text-align: center;
+  margin-top: -10px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.dropdown {
+  margin-top: 10px;
+  position: absolute;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover{
+  background-color: #da9898;
+  color:white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  color: rgb(255, 255, 255);
+}
+
+
+/******************************************TABLAS CONSULTADAS******************************************/
+
+.clientesIns{
+  margin: auto; 
+  margin-bottom: 10px;
+  color: rgb(112, 112, 112);
+  text-align: center;
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: 4px;
+  margin-top: 100px;
+  font-family: fantasy;
+}
+
+.botones:link, .botones:visited{
+  background-color: #ffffff;
+  color: seagreen;
+  padding: 5px 10px;
+  text-align: center;
+  border: 1px solid seagreen;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.botones:hover, .botones:active {
+  background-color: seagreen;
+  color: white;
+}
+
+.botones2:link, .botones2:visited{
+  background-color: #ffffff;
+  color: tomato;
+  padding: 5px 10px;
+  text-align: center;
+  border: 1px solid tomato;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.botones2:hover, .botones2:active {
+  background-color: tomato;
+  color: white;
+}
+
+table, tr, td{
+  border: 1px solid rgb(223, 223, 223);
+  font-family: 'Courier New';
+}
+
+table{
+  border-radius: 10;
+  border-collapse: collapse;
+  height:450px;
+  margin: auto;
+  width:900px;
+}
+
+td{
+  padding: 15px 6px;
+}
+
+.campos{
+  border-radius: 6;
+}
+
+
+#contenedor{
+  overflow:scroll;
+  height:470px;
+  margin: auto;
+  width:920px;
+}
+
+
+/******************************************ACTUALIZAR DATOS******************************************/
+
+#crear2{
+  text-align:center;
+  font-family: fantasy;
+  font-size:35px;
+  letter-spacing: 6px;
+  margin-top: -5px;
+  margin-bottom: -10px;
+}
+
+#registro{
+  display: block;
+  margin: auto;
+  color: rgb(95, 95, 95);
+  font-family: fantasy;
+  font-size: 20px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  height:780px;
+}
+
+.titu{
+  display: block;
+  margin-top: 5px;
+  margin-left: 50px;
+}
+
+#regis{
+  margin:auto;
+  display: block;
+  margin-top:40px;
+  font-size:18px;
+  width:450px;
+  height:200px;
+}
+
+.in{
+  display: block;
+  margin-top: 25px;
+  width: 350px;
+  padding:8px;
+  color: rgb(110, 110, 110);
+  border: 1px solid rgb(223, 223, 223);
+  margin-left: 40px;
+}
+
+.date{
+  display: block;
+  margin-top: 2px;
+  width: 350px;
+  padding:8px;
+  color: rgb(110, 110, 110);
+  border: 1px solid rgb(223, 223, 223);
+  margin-left: 40px;
+}
+
+.btnReg{
+  margin-left: 40px;
+  width: 371px;
+  margin-top: 25px;
+  height: 40px;
+  border: none;
+  background-color: rgb(84, 141, 84);
+  color: white;
+  cursor: pointer;
+}
+
+.btnReg:hover{
+  background-color: rgb(101, 170, 101);
+}
+
+.btnReg2{
+  margin-left: 40px;
+  width: 371px;
+  margin-top: 25px;
+  height: 40px;
+  border: none;
+  background-color: tomato;
+  color: white;
+  cursor: pointer;
+}
+
+.btnReg2:hover{
+  background-color: rgb(201, 77, 55);
+}
+
+/*************************************INGRESAR CLIENTES************************************/
+
+#crear{
+  text-align:center;
+  font-size:35px;
+  margin-top: -5px;
+  font-family: monospace;
+  letter-spacing: 5px;
+  margin-bottom: -10px;
+}
+
+.in{
+  display: block;
+  margin-top: 25px;
+  width: 350px;
+  padding:8px;
+  color: rgb(110, 110, 110);
+  border: 1px solid rgb(223, 223, 223);
+  margin: auto;
+}
+
+.date2{
+  display: block;
+  margin-top: 2px;
+  width: 190px;
+  padding:8px;
+  color: rgb(110, 110, 110);
+  border: 1px solid rgb(223, 223, 223);
+  margin-left: 40px;
+}
+
+.country{
+  display: inline-block;
+  margin-top: 2px;
+  width: 160px;
+  padding:8px;
+  color: rgb(110, 110, 110);
+  border: 1px solid rgb(223, 223, 223);
+  margin-left: 250px;
+}
+
+.titu{
+  display: block;
+  margin-top: 25px;
+  margin-left: 50px;
+}
+
+.titu2{
+  display: block;
+  margin-top: -70px;
+  margin-left: 250px;
+}
+
+.btnR{
+  margin-left: 40px;
+  width: 371px;
+  margin-top: 25px;
+  background-color: white;
+  height: 40px;
+  border: none;
+  border: 1px solid rgb(160, 70, 70);
+  color: rgb(160, 70, 70);
+  cursor: pointer;
+}
+
+.btnR:hover{
+  background-color: rgb(160, 70, 70);
+  color: white;
+}
+
+/******************************************FILTRO******************************************/
+
+
+.fi{
+  border: 1px solid #f48b36;
+  background-color: white;
+  color: #f48b36;
+  padding: 10px 10px;
+  text-align: center;
+  letter-spacing: 3px;
+  float: right;
+  margin-left: 936px;
+  cursor: pointer;
+  margin-top: -35px;
+  height: 30px;
+  width: 200px;
+}
+
+.fi:hover{
+  background-color: #f48b36;
+  color: white;
+}
+
+.filt {
+  position: absolute;
+  display: inline-block;
+}
+
+
+.contenidoFiltro{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  margin-top: -35px;
+  margin-left: 1130px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.contenidoFiltro a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.contenidoFiltro a:hover{
+  background-color: #8a8a8a;
+  color:white;
+}
+
+.filt:hover .contenidoFiltro {
+  display: block;
+}
