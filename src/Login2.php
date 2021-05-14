@@ -3,12 +3,12 @@
   <head>
     <title>Login</title>
 	
-    <link href="login/css/bootstrap.css" rel="stylesheet">
-    <link href="login/micss/login.css" rel="stylesheet">
+    <link href="./styles/bootstrap.css" rel="stylesheet">
+    <link href="./styles/login.css" rel="stylesheet">
     
 
-    <script src="login/js/jquery-3.3.1.min.js"></script>
-    <script src="login/js/bootstrap.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
 
   </head>
 
@@ -25,7 +25,7 @@
 
     
     <form class="form-signin container" name="login" >
-      <img class="mb-4" src="login/imagenes/logo.jpg" alt="" width="260" height="120">
+      <img class="mb-4" src="./assets/img/logo.jpg" alt="" width="260" height="120">
       <h1 class="h3 mb-3 font-weight-normal">Ingresa tu usuario</h1>
 
       <label for="inputEmail" class="sr-only">User</label>

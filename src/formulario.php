@@ -9,10 +9,10 @@
     <meta http-equiv="Last-Modified" content="0">
     <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
     <meta http-equiv="Pragma" content="no-cache">
-	    <script src="login/js/custom.js"></script>
+	    <script src="./js/Confirmar.js"></script>
 
     <title>N' FORMAS</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="./styles/style.css" rel="stylesheet">
     </head>
 	
 	<script type="text/javascript">
@@ -24,7 +24,7 @@
     <header><!--
             <div>
                 <h1 class="titulo"></h1>
-                <img src="imagenes/logo.jpg" height="100" alt="N'Formas" class="logoGym"> 
+                <img src="./assets/img/logo.jpg" height="100" alt="N'Formas" class="logoGym"> 
             </div>-->
             <div id="barMenu">
                 <nav id="menu">

@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <title>N' FORMAS</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="./styles/style.css" rel="stylesheet">
     </head>
 	
 	<script type="text/javascript">
@@ -45,18 +45,19 @@
                             
                 </nav>
             </div>
+
     </header>
         <div class="col-md-8 col-md-offset-2">
              <br/>
-            <h1 class="clientesIns">DATOS DEL CLIENTE</h1>
+            <h1 class="clientesIns">HISTORIAL DE PAGOS</h1>
             <div method="POST" action="" class="filt">
                         <button class="fi">Filtrar por</button>
                             <div class="contenidoFiltro">
-                                <a href="estadoClientes.php?nom=<?php echo $nom; ?>">Nombre</a>
-                                <a href="estadoClientes.php?ape=<?php echo $ape; ?>">Apellido</a>
-                                <a href="estadoClientes.php?ced=<?php echo $ced; ?>">Cedula</a>
-                                <a href="estadoClientes.php?les=<?php echo $les; ?>">Nombre de lesion</a>
-                                <a href="estadoClientes.php?fec=<?php echo $fec; ?>">Fecha de lesion</a>
+                                <a href="historialPagos.php?nom=<?php echo $nom; ?>">Nombre</a>
+                                <a href="historialPagos.php?ape=<?php echo $ape; ?>">Apellido</a>
+                                <a href="historialPagos.php?ced=<?php echo $ced; ?>">Cedula</a>
+                                <a href="historialPagos.php?sal=<?php echo $sal; ?>">Saldo</a>
+                                <a href="historialPagos.php?fec=<?php echo $fec; ?>">Fecha de pago</a>
                             </div>
             </div>
         </div>
@@ -65,11 +66,6 @@
             $serverName="DESKTOP-GLDD0PS\SQLEXPRESS";
             $connectionInfo = array("Database"=>"GYM");
             $con =sqlsrv_connect($serverName, $connectionInfo);
-            /*if($con){
-                echo "<script> alert('Conexion Exitosa')</script>";
-            }else{
-                echo "<script> alert('Conexion Fallida')</script>";
-            }*/
         ?>
 
         <div id="contenedor" class="col-md-8 col-md-offset-2">
@@ -79,40 +75,36 @@
                 <td>NOMBRE</td>
                 <td>APELLIDO</td>
                 <td>CÉDULA</td>
-                <td>ESTATURA</td>
-                <td>PESO INICIAL</td>
-                <td>PESO ACTUAL</td>
-                <td>LESIÓN</td>
+                <td>SALDO</td>
                 <td>FECHA</td>
-                <td>DESCRIPCIÓN</td>
-                <td>ACCIÓN</td>
-                <!--<td>ACCION</td>-->
+                <td>DETALLES</td>
+                <!--<td>ACCIÓN</td>-->
             </tr>
 
             <?php
-
                 if(isset($_GET['nom'])){
-                    $consulta = "SELECT * FROM ESTADO_CLIENTES ORDER BY NOMBRE";
+                    $consulta = "SELECT * FROM HISTORIAL_DE_PAGOS ORDER BY NOMBRE";
                 }
                 elseif(isset($_GET['ape'])){
-                    $consulta = "SELECT * FROM ESTADO_CLIENTES ORDER BY APELLIDO";
+                    $consulta = "SELECT * FROM HISTORIAL_DE_PAGOS ORDER BY APELLIDO";
                 }
                 elseif(isset($_GET['ced'])){
-                    $consulta = "SELECT * FROM ESTADO_CLIENTES ORDER BY CEDULA";
+                    $consulta = "SELECT * FROM HISTORIAL_DE_PAGOS ORDER BY CEDULA";
                 }
-                elseif(isset($_GET['les'])){
-                    $consulta = "SELECT * FROM ESTADO_CLIENTES ORDER BY NOMBRE_LESION";
+                elseif(isset($_GET['sal'])){
+                    $consulta = "SELECT * FROM HISTORIAL_DE_PAGOS ORDER BY SALDO";
                 }
-                elseif(isset($_GET['nac'])){
-                    $consulta = "SELECT * FROM ESTADO_CLIENTES ORDER BY DIA";
+                elseif(isset($_GET['fec'])){
+                    $consulta = "SELECT * FROM HISTORIAL_DE_PAGOS ORDER BY FECHA";
                 }
                 elseif(isset($_POST['btnBuscar'])){
                     $b = $_POST['buscar'];
-                    $consulta = "EXEC SP_ESTADO_CLIENTES_UNO '$b'";
+                    $consulta = "EXEC SP_HISTORIAL_DE_PAGOS_UNO '$b'";
                 }
                 else{
-                    $consulta = "SELECT * FROM ESTADO_CLIENTES";
+                    $consulta = "SELECT * FROM HISTORIAL_DE_PAGOS";
                 }
+                
                 $ejecutar = sqlsrv_query($con, $consulta);
                 $i = 0;
                 while ($fila = sqlsrv_fetch_array($ejecutar)) {
@@ -135,38 +127,23 @@
                     if(is_null($cedu)){
                         $cedu = "-";
                     }
+
+                    $saldo = $fila['SALDO'];
+                    if(is_null($saldo)){
+                        $saldo = "-";
+                    }
                     
-                    $estatura = $fila['ESTATURA'];
-                    if((is_null($estatura)) or ($estatura < 1)){
-                        $estatura = "-";
-                    }
-
-                    $pesoIni = $fila['PESO_INICIAL'];
-                    if((is_null($pesoIni)) or ($pesoIni < 1)){
-                        $pesoIni = "-";
-                    }
-
-                    $pesoFin = $fila['PESO_ACTUAL'];
-                    if((is_null($pesoFin)) or ($pesoFin < 1)){
-                        $pesoFin = "-";
-                    }
-
-                    $lesion = $fila['NOMBRE_LESION'];
-                    if(is_null($lesion)){
-                        $lesion = "-";
-                    }
-
-                    if(is_null($fila['DIA'])){
-                        $dia = "-";
+                    if(is_null($fila['FECHA'])){
+                        $fech = "-";
                     }
                     else{
-                        $fecha_i = $fila['DIA'];
-                        $dia = date_format($fecha_i, "d/m/Y");
+                        $fecha = $fila['FECHA'];
+                        $fech = date_format($fecha, "d/m/Y");
                     }
 
-                    $desc = $fila['DESCRIPCION'];
-                    if(is_null($desc)){
-                        $desc = "-";
+                    $deta = $fila['DETALLES'];
+                    if(is_null($deta)){
+                        $deta = "-";
                     }
 
                     $i++;
@@ -178,14 +155,11 @@
                 <td><?php echo $nom; ?></td>
                 <td><?php echo $ape; ?></td>
                 <td><?php echo $cedu; ?></td>
-                <td><?php echo $estatura; ?></td>
-                <td><?php echo $pesoIni; ?></td>
-                <td><?php echo $pesoFin; ?></td>
-                <td><?php echo $lesion; ?></td>
-                <td><?php echo $dia; ?></td>
-                <td><?php echo $desc; ?></td>
-                <td><a class="botones" href="estadoClientes.php?editarEs=<?php echo $cod; ?>">Editar</a></td>
-               <!-- <td><a class="botones" href="estadoClientes.php?borrarEs=<?php /*echo $cod; */?>">Borrar</a></td>-->
+                <td><?php echo $saldo; ?></td>
+                <td><?php echo $fech; ?></td>
+                <td><?php echo $deta; ?></td>
+                <!--<td><a class="botones" href="historialPagos.php?editarP=<?php /*echo $cod; ?>">Editar</a></td>
+                <!--<td><a class="botones" href="formulario.php?borrar=<?php /*echo $cod; */?>">Borrar</a></td>-->
             </tr>
 
         <?php } ?>
@@ -193,24 +167,22 @@
         </table>
         </div>
 
+        <!--
         <?php
-            if(isset($_GET['editarEs'])){
-                include("editarEstado.php");
+           /* if(isset($_GET['editarP'])){
+                include("editarPagos.php");
             }
         ?>
-        
-        <!--
         <?php/*
-            if(isset($_GET['borrarEs'])){
-                include("borrarEstado.php");
+            if(isset($_GET['borrar'])){
+                include("borrar.php");
             }*/
         ?>
         -->
 
-        
         <?php
             if(isset($_POST['btnvolver'])){
-                echo "<script> window.open('estadoClientes.php', '_self')</script>";
+                echo "<script> window.open('historialPagos.php', '_self')</script>";
             }
         ?>
 </body>

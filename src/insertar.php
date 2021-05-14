@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <title>N' FORMAS</title>
-    <link href="css/style.css" rel="stylesheet"> 
+    <link href="./styles/style.css" rel="stylesheet"> 
 
     </head>
 <body>
